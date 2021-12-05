@@ -74,6 +74,7 @@ $(":radio").change(function () {
 
 // fin
 
+/* gallerie produit */
 function myFunction(imgs) {
   var expandImg = document.getElementById("expandedImg");
   var imgText = document.getElementById("imgtext");
@@ -81,3 +82,114 @@ function myFunction(imgs) {
   imgText.innerHTML = imgs.alt;
   expandImg.parentElement.style.display = "block";
 }
+
+/******** test avis ********/
+
+// donne la valeur de l'input au moment du click
+function starValue() {
+  console.log(document.querySelector("input[name=stars]:checked").value);
+}
+
+// target bouton publier avis
+document.querySelector("#publiAvis").addEventListener("click", starValue);
+
+// test date
+/* https://stackoverflow.com/questions/3177836/how-to-format-time-since-xxx-e-g-4-minutes-ago-similar-to-stack-exchange-site */
+
+(function (global) {
+  const SECOND = 1;
+  const MINUTE = 60;
+  const HOUR = 3600;
+  const DAY = 86400;
+  const MONTH = 2629746;
+  const YEAR = 31556952;
+  const DECADE = 315569520;
+
+  global.timeAgo = function (date) {
+    var now = new Date();
+    var diff = Math.round((now - date) / 1000);
+
+    var unit = "";
+    var num = 0;
+    var plural = false;
+
+    switch (true) {
+      case diff <= 0:
+        return "À l'instant";
+        break;
+
+      case diff < MINUTE:
+        num = Math.round(diff / SECOND);
+        unit = "sec";
+        plural = num > 1;
+        break;
+
+      case diff < HOUR:
+        num = Math.round(diff / MINUTE);
+        unit = "min";
+        plural = num > 1;
+        break;
+
+      case diff < DAY:
+        num = Math.round(diff / HOUR);
+        unit = "heure";
+        plural = num > 1;
+        break;
+
+      case diff < MONTH:
+        num = Math.round(diff / DAY);
+        unit = "jour";
+        plural = num > 1;
+        break;
+
+      case diff < YEAR:
+        num = Math.round(diff / MONTH);
+        unit = "mois";
+        plural = num > 1;
+        break;
+
+      case diff < DECADE:
+        num = Math.round(diff / YEAR);
+        unit = "an";
+        plural = num > 1;
+        break;
+
+      default:
+        num = Math.round(diff / YEAR);
+        unit = "an";
+        plural = num > 1;
+    }
+
+    var str = "";
+    str += "Il y a ";
+    if (num) {
+      str += `${num} `;
+    }
+
+    str += `${unit}`;
+
+    if (plural && unit !== "mois") {
+      str += "s";
+    }
+
+    return str;
+  };
+})(window);
+
+console.log(timeAgo(new Date()));
+console.log(
+  timeAgo(new Date("Jun 03 2018 15:12:19 GMT+0300 (FLE Daylight Time)"))
+);
+console.log(
+  timeAgo(new Date("Jun 03 2018 13:12:19 GMT+0300 (FLE Daylight Time)"))
+);
+console.log(
+  timeAgo(new Date("May 28 2021 13:12:19 GMT+0300 (FLE Daylight Time)"))
+);
+console.log(
+  timeAgo(new Date("May 28 100 13:12:19 GMT+0300 (FLE Daylight Time)"))
+);
+console.log(timeAgo(new Date()));
+console.log(
+  timeAgo(new Date("dec 4 2021 13:12:19 GMT+0300 (FLE Daylight Time)"))
+);

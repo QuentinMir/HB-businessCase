@@ -1365,44 +1365,50 @@
             <div class="col-lg-6 col-12">
               <div class="row">
                 <!-- grande image -->
-                <div class="col-12">
-                  <img
-                    class="mb-4"
-                    id="expandedImg"
-                    src="images/img-produits/img-produit-resize-1.jpg"
-                  />
+                <div class="col-12 text-center">
+                  <figure class="img-prod-main p-3">
+                    <img
+                      class="mb-2"
+                      id="expandedImg"
+                      src="images/img-produits/img-produit-resize-1.jpg"
+                    />
+                  </figure>
                 </div>
 
                 <!-- les miniatures -->
                 <div class="col-12">
                   <div class="row">
-                    <div class="col-3">
+                    <div class="col-3 text-center">
                       <img
                         src="images/img-produits/img-produit-resize-1.jpg"
+                        class="img-prod-sm p-2 img-fluid"
                         alt="produit1"
                         style="width: 100%"
                         onclick="myFunction(this);"
                       />
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 text-center">
                       <img
                         src="images/img-produits/img-produit-resize-2.jpg"
+                        class="img-prod-sm p-2 img-fluid"
                         alt="produit2"
                         style="width: 100%"
                         onclick="myFunction(this);"
                       />
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 text-center">
                       <img
                         src="images/img-produits/img-produit-resize-3.jpg"
+                        class="img-prod-sm p-2 img-fluid"
                         alt="Produit3"
                         style="width: 100%"
                         onclick="myFunction(this);"
                       />
                     </div>
-                    <div class="col-3">
+                    <div class="col-3 text-center">
                       <img
                         src="images/img-produits/img-produit-resize-4.jpg"
+                        class="img-prod-sm p-2 img-fluid"
                         alt="produit4"
                         style="width: 100%"
                         onclick="myFunction(this);"
@@ -1526,7 +1532,9 @@
                           </p>
                           <div class="d-flex align-items-center">
                             <p class="mb-2">1 X 11,99€</p>
-                            <p class="ms-4 mb-2 text-red fs-5 fw-bold">11,99</p>
+                            <p class="ms-4 mb-2 text-red fs-5 fw-bold">
+                              11,99€
+                            </p>
                           </div>
                           <div>
                             <div class="d-flex align-items-center my-2">
@@ -1581,7 +1589,7 @@
                   class="
                     col-7
                     d-flex
-                    align-items-start
+                    align-items-center
                     justify-content-around
                     mb-3
                   "
@@ -2124,7 +2132,7 @@
                     <div class="modal-body d-flex flex-column">
                       <form class="rating text-start">
                         <label>
-                          <input type="radio" name="stars" value="1" />
+                          <input type="radio" name="stars" value="1" checked />
                           <span class="icon">★</span>
                         </label>
                         <label>
@@ -2155,8 +2163,17 @@
                         </label>
                       </form>
 
+                      <!-- nom -->
+                      <input
+                        type="text"
+                        id="nomAvis"
+                        class="px-2 py-2 my-2"
+                        placeholder="Votre nom..."
+                      />
+
+                      <!-- avis -->
                       <textarea
-                        class="mt-1"
+                        class="px-2 py-2 rounded"
                         name="avis"
                         id="avis"
                         cols="30"
@@ -2173,7 +2190,11 @@
                       >
                         Annuler
                       </button>
-                      <button type="button" class="btn btn-primary">
+                      <button
+                        id="publiAvis"
+                        type="button"
+                        class="btn btn-primary"
+                      >
                         Publier mon avis
                       </button>
                     </div>
@@ -2208,7 +2229,7 @@
         </div>
         <div class="container">
           <!-- les avis postés -->
-          <div class="row">
+          <div class="row" id="blockAvis">
             <!-- un avis client posté -->
             <div class="col-lg-6 lg-12 d-flex align-items-center my-3">
               <h6 class="my-0">Jean-Michel Labrador</h6>
