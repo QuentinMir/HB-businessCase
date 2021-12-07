@@ -173,6 +173,14 @@ function publishRating() {
   document.querySelector("#nomAvis").value = "";
   document.querySelector("#avis").value = "";
 }
+///////////////////////////////////////////////
+
+// GALERIE PRODUIT - sélection des photos
+function myFunction(imgs) {
+  let expandImg = document.getElementById("expandedImg");
+  expandImg.src = imgs.src;
+  expandImg.parentElement.style.display = "block";
+}
 
 /*************************************
  * ** MAIN    ----------------------

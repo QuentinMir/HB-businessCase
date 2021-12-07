@@ -62,6 +62,11 @@ h6 {
   text-decoration: underline;
 }
 
+li a.text-red:hover {
+  color: #f05d69 !important ;
+  text-decoration: none;
+}
+
 /* ####################### WIDTH */
 
 .w-90 {
