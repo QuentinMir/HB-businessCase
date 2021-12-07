@@ -60,18 +60,3 @@ $(".dropdown").on("show.bs.dropdown", function (e) {
 $(".dropdown").on("hide.bs.dropdown", function (e) {
   $(this).find(".dropdown-menu").first().stop(true, true).slideUp();
 });
-
-/**************POPUP MON COMPTE**************/
-function myFunction() {
-  var popup = document.getElementById("myPopup");
-  popup.classList.toggle("show");
-}
-
-/**************** GALERIE PRODUIT ****************/
-function myFunction(imgs) {
-  var expandImg = document.getElementById("expandedImg");
-  var imgText = document.getElementById("imgtext");
-  expandImg.src = imgs.src;
-  imgText.innerHTML = imgs.alt;
-  expandImg.parentElement.style.display = "block";
-}
