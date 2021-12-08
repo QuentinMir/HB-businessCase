@@ -6,6 +6,7 @@
 
 // compter les étoiles
 let starCount;
+let sommeNote;
 
 /*************************************
  * ** FONCTIONS    -----------------
@@ -144,23 +145,26 @@ function publishRating() {
   }
 
   let blockAvis = document.querySelector("#blockAvis");
-  let contentAvis = `
-      <!-- un avis client posté -->
-                <div class="col-lg-6 lg-12 d-flex align-items-center my-3">
-                  <h6 class="my-0">${titleCase(name)} </h6>
-                  <span class="icon fs-4 text-red my-0 ms-5 me-3">${starValue()} </span>
-                  <p class="my-0">- ${timeAgo(new Date())} </p>
-                </div>
-                <div class="col-lg-6 d-none d-lg-block"></div>
-                <div class="col-12">
-                  <p class="ms-auto me-0 w-75 my-1">
-                    ' ${text} '
-                  </p>
-                  <hr>
-                </div>`;
-
-  /* mettre un if pour détecter la phrase pas de comment et jouer sur le += */
-  console.log(document.querySelector("#blockAvis h2"));
+  let contentAvis = `<div class="col-lg-6 col-12 my-3">
+  <div class="row align-items-center justify-content-around">
+    <div class="col-5">
+      <h6 class="my-0">${titleCase(name)} </h6>
+    </div>
+    <div class="col-3">
+      <span class="icon fs-4 text-red my-0">${starValue()} </span>
+    </div>
+    <div class="col-4">
+      <p class="my-0">-  ${timeAgo(new Date())} </p>
+    </div>
+  </div>
+</div>
+<div class="col-lg-6 d-none d-lg-block"></div>
+<div class="col-12">
+  <p class="ms-auto me-0 w-75 my-1">
+  ' ${text} '
+  </p>
+  <hr>
+</div>`;
 
   // injecter l'avis en fonction du contenu initial
   if (document.querySelector("#blockAvis h5") != null) {
@@ -172,6 +176,10 @@ function publishRating() {
   // reset les champs de saisie
   document.querySelector("#nomAvis").value = "";
   document.querySelector("#avis").value = "";
+  console.log(sumValues(starCount));
+
+  // rafraichir le compte du nombre d'avis
+  refreshNbAvis();
 }
 ///////////////////////////////////////////////
 
@@ -182,8 +190,82 @@ function myFunction(imgs) {
   expandImg.parentElement.style.display = "block";
 }
 
+// Faire la somme de l'objet = combien d'avis
+function sumValues(obj) {
+  let sum = 0;
+  for (var el in obj) {
+    if (obj.hasOwnProperty(el)) {
+      sum += parseInt(obj[el]);
+    }
+  }
+  return sum;
+}
+
+//Somme pondérée des étoiles
+function sommeNotes() {
+  sommeNote = 0;
+  for (let i = 0; i < Object.keys(starCount).length; i++) {
+    sommeNote += (i + 1) * starCount[Object.keys(starCount)[i]];
+  }
+  return sommeNote;
+}
+
+// Indiquer le nombre d'avis (avec objet starCount) + afficher la note du produit
+function refreshNbAvis() {
+  let nbAvis = document.querySelectorAll("em.nbAvis");
+  nbAvis.forEach((el) => (el.innerHTML = sumValues(starCount)));
+
+  //Compter le nombre d'étoiles et injecter html
+  document.querySelector("#star1").textContent = starCount.oneStar;
+  document.querySelector("#star2").textContent = starCount.twoStar;
+  document.querySelector("#star3").textContent = starCount.threeStar;
+  document.querySelector("#star4").textContent = starCount.fourStar;
+  document.querySelector("#star5").textContent = starCount.fiveStar;
+
+  // note moyenne du produit
+  let note = sommeNotes() / sumValues(starCount);
+
+  // injection de la note
+  if (isNaN(note)) {
+    note = 0;
+  }
+  document.querySelector("#note").textContent = parseFloat(note).toFixed(1);
+
+  // nb étoiles de la note
+  starRating(note);
+}
+
+// Combien d'étoiles apparaissent en fonction de la note
+function starRating(note) {
+  let nbEtoile = document.querySelector("#starRating");
+  let star = `<i class="me-1 fas fa-star text-red"></i>`;
+  let halfStar = `<i class="me-1 fas fa-star-half text-red"></i>`;
+
+  if (note <= 0.5) {
+    nbEtoile.innerHTML = halfStar;
+  } else if (note <= 1) {
+    nbEtoile.innerHTML = star;
+  } else if (note <= 1.5) {
+    nbEtoile.innerHTML = star + halfStar;
+  } else if (note <= 2) {
+    nbEtoile.innerHTML = star + star;
+  } else if (note <= 2.5) {
+    nbEtoile.innerHTML = star + star + halfStar;
+  } else if (note <= 3) {
+    nbEtoile.innerHTML = star + star + star;
+  } else if (note <= 3.5) {
+    nbEtoile.innerHTML = star + star + star + halfStar;
+  } else if (note <= 4) {
+    nbEtoile.innerHTML = star + star + star + star;
+  } else if (note <= 4.5) {
+    nbEtoile.innerHTML = star + star + star + star + halfStar;
+  } else if (note <= 5) {
+    nbEtoile.innerHTML = star + star + star + star + star;
+  }
+}
+
 /*************************************
- * ** MAIN    ----------------------
+ * ** MAIN  CODE  ----------------------
  *  *********************************/
 document.addEventListener("DOMContentLoaded", function () {
   // compter les étoiles
@@ -194,6 +276,8 @@ document.addEventListener("DOMContentLoaded", function () {
     fourStar: 0,
     fiveStar: 0,
   };
+
+  refreshNbAvis();
 
   let publiAvis = document.querySelector("#publiAvis");
 
