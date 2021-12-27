@@ -362,6 +362,10 @@ button span {
   word-break: break-word;
 }
 
+em {
+  font-style: normal;
+}
+
 .icon-nav-bot {
   height: 16px;
   margin-top: 4px !important;
@@ -1289,7 +1293,8 @@ h3 a.text-red:hover {
 @media (max-width: 575.98px) {
   /* Carousel texte petit écran */
   .carousel-content h3 {
-    font-size: 18px;
+    /* font-size: 18px; */
+    font-size: 3vw;
   }
 
   .carousel-content {
@@ -1304,6 +1309,10 @@ h3 a.text-red:hover {
   /* texte défilement carousel petit écran */
   .carousel-indicators h4 {
     font-size: 12px;
+  }
+
+  .carousel-indicators button {
+    font-size: 2vw;
   }
 }
 

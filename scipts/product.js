@@ -17,7 +17,7 @@ function titleCase(string) {
   return string[0].toUpperCase() + string.slice(1).toLowerCase();
 }
 
-// donne la valeur de l'input etoile au moment du click
+// donne la valeur de l'input etoile au moment du clic
 function starValue() {
   let starValue = document.querySelector("input[name=stars]:checked").value;
   let starHTML;
@@ -176,12 +176,11 @@ function publishRating() {
   // reset les champs de saisie
   document.querySelector("#nomAvis").value = "";
   document.querySelector("#avis").value = "";
-  console.log(sumValues(starCount));
 
   // rafraichir le compte du nombre d'avis
   refreshNbAvis();
 }
-///////////////////////////////////////////////
+//////////////////////////////////////////////
 
 // GALERIE PRODUIT - sélection des photos
 function myFunction(imgs) {
@@ -277,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fiveStar: 0,
   };
 
+  // afficher nombre d'avis sur la page
   refreshNbAvis();
 
   let publiAvis = document.querySelector("#publiAvis");

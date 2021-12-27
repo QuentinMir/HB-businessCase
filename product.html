@@ -42,17 +42,10 @@
               <div class="row align-items-end">
                 <div class="col-lg-5 col-sm-12">
                   <!-- logo -->
-                  <!-- <a href="#"> 
-                      <embed class="img-fluid svg" width="210" height="39" title="logo"
-                        src="images/logo-svg.svg">
-                    </a>
-                  </div> -->
-
-                  <!-- logo -->
-                  <a href="#">
+                  <a href="/">
                     <img
                       src="images/logo-svg.svg"
-                      class="img-fluid mb-1"
+                      class="img-fluid mb-lg-1 mb-3"
                       height="39"
                       width="210"
                       title="logo"
@@ -81,13 +74,25 @@
               <!-- Sous- row -->
               <div class="row align-items-center">
                 <div class="col-lg-4 col-4">
-                  <a
-                    href=""
-                    class="d-flex-navtop align-items-end justify-content-start"
+                  <!-- Button trigger modal -->
+                  <button
+                    type="button"
+                    class="
+                      btn
+                      text-white
+                      montserrat
+                      fs-14
+                      lh-sm
+                      compte compte-small
+                      d-flex
+                    "
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
                   >
                     <!-- icon compte -->
+
                     <svg
-                      class="me-2"
+                      class="me-lg-2 mb-1 text-center"
                       width="20"
                       height="20"
                       viewbox="0 0 28 27"
@@ -102,9 +107,88 @@
                       </g>
                     </svg>
 
-                    <p class="my-0">Mon compte</p>
-                  </a>
+                    <em class="d-none d-sm-block d-lg-block"> Mon compte </em>
+                  </button>
+
+                  <!-- Modal -->
+                  <div
+                    class="modal fade"
+                    id="exampleModal"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">
+                            Se connecter
+                          </h5>
+                          <button
+                            type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div class="modal-body">
+                          <form action="*" method="get" target="_blank">
+                            <div class="mb-3">
+                              <label class="form-label openS"
+                                >Nom d'utilisateur</label
+                              >
+                              <input
+                                type="email"
+                                class="form-control"
+                                id="username"
+                                name="username"
+                                placeholder="Nom d'utilisateur"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <label class="form-label openS"
+                                >Mot de passe</label
+                              >
+                              <input
+                                type="password"
+                                class="form-control"
+                                id="password"
+                                name="password"
+                                placeholder="Mot de passe"
+                              />
+                            </div>
+                            <div class="mb-3 form-check">
+                              <input
+                                type="checkbox"
+                                class="form-check-input"
+                                id="rememberMe"
+                              />
+                              <label
+                                class="form-check-label openS"
+                                for="rememberMe"
+                                >Se souvenir de moi</label
+                              >
+                            </div>
+                            <div class="modal-footer d-block">
+                              <p class="float-start openS">
+                                Pas encore de compte ?<a href="Compte.html">
+                                  S'enregistrer</a
+                                >
+                              </p>
+                              <button
+                                type="submit"
+                                class="btn btn-primary float-end"
+                              >
+                                Se connecter
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+
                 <div class="col-lg-4 col-4">
                   <a
                     href=""
@@ -162,7 +246,9 @@
                         </g>
                       </g>
                     </svg>
-                    <p class="my-0">Mes commandes</p>
+                    <p class="my-0 d-none d-sm-block d-lg-block">
+                      Mes commandes
+                    </p>
                   </a>
                 </div>
                 <div class="col-lg-4 col-4">
@@ -185,7 +271,7 @@
                         fill="#fcfbf6"
                       />
                     </svg>
-                    <p class="my-0">Mon panier</p>
+                    <p class="my-0 d-none d-sm-block d-lg-block">Mon panier</p>
                   </a>
                 </div>
               </div>
@@ -220,9 +306,9 @@
                 <!-- Offre spéciale-->
                 <li class="nav-item me-auto">
                   <a
-                    class="nav-link py-1 d-flex text-red no-ps"
+                    class="nav-link py-1 d-flex no-ps"
                     aria-current="page"
-                    href="#"
+                    href="boutique.html"
                   >
                     <!-- icon offre spéciale -->
                     <svg
@@ -273,7 +359,9 @@
                   <!-- début du bloc dropdown collapse -->
                   <ul class="dropdown-menu">
                     <li>
-                      <a class="dropdown-item" href="#">Tout pour le chien</a>
+                      <a class="dropdown-item" href="sous-categories.html"
+                        >Tout pour le chien</a
+                      >
                     </li>
                     <li>
                       <hr class="hr-border dropdown-divider" />
@@ -288,26 +376,30 @@
                           align-items-center
                           justify-content-between
                         "
-                        href="#"
+                        href="boutique.html"
                       >
                         <div>Nourriture</div>
                         <i class="ms-2 opac-icon fas fa-chevron-right"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-submenu">
                         <li>
-                          <a class="dropdown-item" href="#">Croquettes</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Croquettes</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#"
+                          <a class="dropdown-item" href="boutique.html"
                             >Nourriture humide</a
                           >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Friandises</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Friandises</a
+                          >
                         </li>
                       </ul>
                     </li>
-                    <!-- ####################### -->
+                    <!-- ######################### -->
                     <!-- item nav 2 -->
                     <li>
                       <a
@@ -317,23 +409,31 @@
                           align-items-center
                           justify-content-between
                         "
-                        href="#"
+                        href="boutique.html"
                       >
                         <div>Couchage</div>
                         <i class="ms-2 opac-icon fas fa-chevron-right"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-submenu">
                         <li>
-                          <a class="dropdown-item" href="#">Paniers</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Paniers</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Tapis</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Tapis</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Corbeilles</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Corbeilles</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Niches</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Niches</a
+                          >
                         </li>
                       </ul>
                     </li>
@@ -347,23 +447,31 @@
                           align-items-center
                           justify-content-between
                         "
-                        href="#"
+                        href="boutique.html"
                       >
                         <div>Promenade</div>
                         <i class="ms-2 opac-icon fas fa-chevron-right"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-submenu">
                         <li>
-                          <a class="dropdown-item" href="#">Laisses</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Laisses</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Colliers</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Colliers</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Harnais</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Harnais</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Muselières</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Muselières</a
+                          >
                         </li>
                       </ul>
                     </li>
@@ -377,25 +485,31 @@
                           align-items-center
                           justify-content-between
                         "
-                        href="#"
+                        href="boutique.html"
                       >
                         <div>Jouets</div>
                         <i class="ms-2 opac-icon fas fa-chevron-right"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-submenu">
                         <li>
-                          <a class="dropdown-item" href="#">Balles</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Balles</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Peluches</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Peluches</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#"
+                          <a class="dropdown-item" href="boutique.html"
                             >Jouets à mordiller</a
                           >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Cordes</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Cordes</a
+                          >
                         </li>
                       </ul>
                     </li>
@@ -409,28 +523,36 @@
                           align-items-center
                           justify-content-between
                         "
-                        href="#"
+                        href="boutique.html"
                       >
                         <div>Soins</div>
                         <i class="ms-2 opac-icon fas fa-chevron-right"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-submenu">
                         <li>
-                          <a class="dropdown-item" href="#">Toilettage</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Toilettage</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#"
+                          <a class="dropdown-item" href="boutique.html"
                             >Collerettes & Bandages</a
                           >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Brosses</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Brosses</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Hygiène dentaire</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Hygiène dentaire</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Puces & tiques</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Puces & tiques</a
+                          >
                         </li>
                       </ul>
                     </li>
@@ -444,22 +566,26 @@
                           align-items-center
                           justify-content-between
                         "
-                        href="#"
+                        href="boutique.html"
                       >
                         <div>Gamelles</div>
                         <i class="ms-2 opac-icon fas fa-chevron-right"></i>
                       </a>
                       <ul class="dropdown-menu dropdown-submenu">
                         <li>
-                          <a class="dropdown-item" href="#">Gamelles</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Gamelles</a
+                          >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#"
+                          <a class="dropdown-item" href="boutique.html"
                             >Distributeur de croquettes</a
                           >
                         </li>
                         <li>
-                          <a class="dropdown-item" href="#">Fontaine à eau</a>
+                          <a class="dropdown-item" href="boutique.html"
+                            >Fontaine à eau</a
+                          >
                         </li>
                       </ul>
                     </li>
@@ -467,13 +593,13 @@
                       <hr class="hr-border dropdown-divider" />
                     </li>
                     <li>
-                      <a class="dropdown-item text-red" href="#"
+                      <a class="dropdown-item text-red" href="boutique.html"
                         >Meilleures ventes</a
                       >
                     </li>
 
                     <li>
-                      <a class="dropdown-item text-red" href="#"
+                      <a class="dropdown-item text-red" href="boutique.html"
                         >Offres spéciales</a
                       >
                     </li>
@@ -1266,7 +1392,7 @@
                   <a
                     class="nav-link py-1 d-flex active no-pe"
                     aria-current="page"
-                    href="#"
+                    href="Animalerie-3.0.html"
                   >
                     <div class="d-flex align-self-center">
                       <img src="images/planets.svg" width="22" alt="planète" />
@@ -1372,7 +1498,7 @@
                 <div class="col-12 text-center">
                   <figure class="img-prod-main p-3">
                     <img
-                      class="mb-2"
+                      class="mb-2 img-fluid"
                       id="expandedImg"
                       src="images/img-produits/img-produit-resize-1.jpg"
                     />
@@ -2023,7 +2149,7 @@
                 id="starRating"
                 class="border-bottom border-secondary mx-5 pb-2"
               >
-                <!-- étoiles ici -->
+                <!--Injection étoiles ici -->
               </div>
               <p class="avis-pdt pt-2">Sur <em class="nbAvis">X</em> avis</p>
             </div>
